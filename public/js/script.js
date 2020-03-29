@@ -33,3 +33,73 @@ bc_firebase_remoteConfig(2000, {"welcome_message": "Caezar"}, (res, obj) => {
         welcome_element.innerText = val._value + ' (' + val._source + ')';
     }
 });
+
+
+function randomInRange(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+setInterval(function(){ 
+    confetti({
+        angle: randomInRange(55, 125),
+        spread: randomInRange(50, 70),
+        particleCount: randomInRange(50, 100),
+        origin: { y: 0.6 }
+    }); 
+}, 3000);
+
+
+var duration = 5 * 1000;
+var animationEnd = Date.now() + duration;
+var skew = 1;
+
+(function frame() {
+  var timeLeft = animationEnd - Date.now();
+  var ticks = Math.max(200, 500 * (timeLeft / duration));
+  skew = Math.max(0.8, skew - 0.001);
+
+  confetti({
+    particleCount: 1,
+    startVelocity: 0,
+    ticks: ticks,
+    gravity: 0.5,
+    origin: {
+      x: Math.random(),
+      // since particles fall down, skew start toward the top
+      y: (Math.random() * skew) - 0.2
+    },
+    colors: ['#9CBF09'],
+    shapes: ['circle']
+  });
+
+  if (timeLeft > 0) {
+    requestAnimationFrame(frame);
+  }
+}());
+
+
+var end = Date.now() + Number.MAX_VALUE;
+
+// go Buckeyes!
+var colors = ['#2A8BE8', '#F8CE37'];
+
+(function frame() {
+  confetti({
+    particleCount: 2,
+    angle: 60,
+    spread: 70,
+    origin: { x: 0 },
+    colors: colors
+  });
+  confetti({
+    particleCount: 2,
+    angle: 120,
+    spread: 70,
+    origin: { x: 1 },
+    colors: colors
+  });
+
+  if (Date.now() < end) {
+    requestAnimationFrame(frame);
+  }
+}());
