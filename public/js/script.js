@@ -46,10 +46,10 @@ setInterval(function(){
         particleCount: randomInRange(50, 100),
         origin: { y: 0.6 }
     }); 
-}, 3000);
+}, 4000);
 
 
-var duration = 5 * 1000;
+var duration = 2 * 1000;
 var animationEnd = Date.now() + duration;
 var skew = 1;
 
@@ -77,8 +77,8 @@ var skew = 1;
   }
 }());
 
-
-var end = Date.now() + Number.MAX_VALUE;
+var duration = 2 * 1000;
+var end = Date.now() + duration;
 
 // go Buckeyes!
 var colors = ['#2A8BE8', '#F8CE37'];
