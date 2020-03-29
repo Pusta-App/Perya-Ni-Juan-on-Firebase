@@ -178,9 +178,6 @@ const signgg = document.getElementById('signgg');
 
 
 
-
-
-
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 console.log( JSON.stringify(user) );
